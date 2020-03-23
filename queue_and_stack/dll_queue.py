@@ -22,7 +22,8 @@ class Queue:
         # We want to set the value to a variable so we can return it
         else:
             value = self.storage.tail.value
-            # Remove 1 from the size and call the helper function and remove the item
+            # Remove 1 from the size and call the helper function
+            # and removes the item
             self.size -= 1
             self.storage.remove_from_tail()
 
