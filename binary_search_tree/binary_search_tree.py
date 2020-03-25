@@ -1,7 +1,7 @@
+from dll_stack import Stack
+from dll_queue import Queue
 import sys
 sys.path.append('../queue_and_stack')
-from dll_queue import Queue
-from dll_stack import Stack
 
 
 class BinarySearchTree:
@@ -12,16 +12,61 @@ class BinarySearchTree:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
 
-    # Return True if the tree contains the value
-    # False if it does not
+        # check if empty -> if empty put node at root
+        # If not empty, compare if new < node.value
+        if self.value:
+            # go left (leftnode.insert)
+            if value < self.value:
+
+                # If self.left is valid insert, if not
+                # create that value and return it
+                if self.left:
+                    self.left.insert(value)
+                    return
+                else:
+                    self.left = BinarySearchTree(value)
+                    return
+
+            # if new > node.value, go right (rightnode.insert value)
+            else:
+                # if self.right is valid insert, if not
+                # Create that value and return it
+                if self.right:
+                    self.right.insert(value)
+                    return
+                else:
+                    self.right = BinarySearchTree(value)
+                    return
+        else:
+            self.value = value
+
     def contains(self, target):
+        """
+        If node.value == findvalue
+            return value
+        else
+            if find < node.value
+                if node left
+                    find on left node
+                else
+                    find on right node
+        """
         pass
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        """
+        If node to the right
+            Grab the right node
+        else:
+            return node.value
+        """
+        if self.value <= self.right.value:
+            return self.right.get_max()
+
+        if not self.right:
+            return self.value
 
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
