@@ -3,6 +3,7 @@ as well as its next node in the List."""
 
 
 class ListNode:
+
     def __init__(self, value, prev=None, next=None):
         self.value = value
         self.prev = prev
@@ -32,6 +33,7 @@ class ListNode:
     accordingly, effectively deleting this ListNode."""
 
     def delete(self):
+
         if self.prev:
             self.prev.next = self.next
         if self.next:

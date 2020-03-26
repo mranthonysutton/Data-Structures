@@ -3,7 +3,6 @@ from dll_queue import Queue
 import sys
 sys.path.append('../queue_and_stack')
 
-
 class BinarySearchTree:
     def __init__(self, value):
         self.value = value
